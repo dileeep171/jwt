@@ -60,7 +60,7 @@ jwt = JWTManager(app)
 def login():
   username = request.json.get("username", None)
   password = request.json.get("password", None)
-  if username != "dharma9770" or password != "Dharma@123":
+  if username != "dileep" or password != "dileep@123":
     return jsonify({
       "msg" : "Bad username or password"
     }, 401 )
