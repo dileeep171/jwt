@@ -45,6 +45,7 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
+import os
 
 from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
@@ -53,7 +54,7 @@ from flask_jwt_extended import JWTManager
 
 app = Flask(__name__)
 
-app.config['JWT_SECRET_KEY'] ="The greatest of all time is NTR"
+app.config["JWT_SECRET_KEY"] = os.environ.get("JWT_SECRET_KEY")
 jwt = JWTManager(app)
 
 @app.route("/login", methods = ["POST"])
