@@ -50,10 +50,10 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
-import os
+
 app = Flask(__name__)
 
-app.config["JWT_SECRET_KEY"] = os.environ.get("JWT_SECRET_KEY")
+app.config['JWT_SECRET_KEY'] ="The greatest of all time is NTR"
 jwt = JWTManager(app)
 
 @app.route("/login", methods = ["POST"])
@@ -64,7 +64,7 @@ def login():
     return jsonify({
       "msg" : "Bad username or password"
     }, 401 )
-  access_token = create_access_token(identity = username)
+  access_token = create_access_token(identity = use)
   return jsonify(access_token)
 
 
